@@ -1,0 +1,11 @@
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\bin\Debug\net6.0\MailContainerTest.Tests.deps.json
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\bin\Debug\net6.0\MailContainerTest.Tests.dll
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\bin\Debug\net6.0\ref\MailContainerTest.Tests.dll
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\bin\Debug\net6.0\MailContainerTest.Tests.pdb
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\obj\Debug\net6.0\MailContainerTest.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\obj\Debug\net6.0\MailContainerTest.Tests.AssemblyInfoInputs.cache
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\obj\Debug\net6.0\MailContainerTest.Tests.AssemblyInfo.cs
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\obj\Debug\net6.0\MailContainerTest.Tests.csproj.CoreCompileInputs.cache
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\obj\Debug\net6.0\MailContainerTest.Tests.dll
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\obj\Debug\net6.0\ref\MailContainerTest.Tests.dll
+C:\repos\test\MailContainerTest\MailContainerTest\MailContainerTest.Tests\obj\Debug\net6.0\MailContainerTest.Tests.pdb

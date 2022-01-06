@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5ea53851-f58c-4a2d-a730-262c38fd40be": {
+      "ProjectGuid": "5ea53851-f58c-4a2d-a730-262c38fd40be",
+      "DisplayName": "MailContainerTest",
+      "ColorIndex": 0
+    },
+    "6ae73bec-fb91-4d72-ad9d-592e9a6b29ef": {
+      "ProjectGuid": "6ae73bec-fb91-4d72-ad9d-592e9a6b29ef",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    },
+    "29d9c555-7830-4ddd-8856-edf091ad1cea": {
+      "ProjectGuid": "29d9c555-7830-4ddd-8856-edf091ad1cea",
+      "DisplayName": "MailContatinerTest.Tests",
+      "ColorIndex": 2
+    },
+    "316578ec-c391-4609-b5ee-f68c58023338": {
+      "ProjectGuid": "316578ec-c391-4609-b5ee-f68c58023338",
+      "DisplayName": "MailContainerTest.Tests",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

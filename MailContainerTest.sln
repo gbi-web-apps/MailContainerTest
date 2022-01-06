@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailContainerTest", "MailContainerTest\MailContainerTest.csproj", "{5EA53851-F58C-4A2D-A730-262C38FD40BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6AE73BEC-FB91-4D72-AD9D-592E9A6B29EF}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailContainerTest.Tests", "MailContainerTest.Tests\MailContainerTest.Tests.csproj", "{316578EC-C391-4609-B5EE-F68C58023338}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EA53851-F58C-4A2D-A730-262C38FD40BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA53851-F58C-4A2D-A730-262C38FD40BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA53851-F58C-4A2D-A730-262C38FD40BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA53851-F58C-4A2D-A730-262C38FD40BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316578EC-C391-4609-B5EE-F68C58023338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316578EC-C391-4609-B5EE-F68C58023338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316578EC-C391-4609-B5EE-F68C58023338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316578EC-C391-4609-B5EE-F68C58023338}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65E92BCE-13A0-4598-9892-E0C2C0D0E6CD}
+	EndGlobalSection
+EndGlobal

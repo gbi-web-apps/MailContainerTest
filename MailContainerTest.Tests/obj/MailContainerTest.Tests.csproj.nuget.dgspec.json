@@ -1,31 +1,122 @@
 {
   "format": 1,
   "restore": {
-    "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj": {}
+    "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj": {}
   },
   "projects": {
-    "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj": {
+    "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj",
+        "projectUniqueName": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj",
         "projectName": "MailContainerTest.Tests",
-        "projectPath": "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj",
-        "packagesPath": "C:\\Users\\andrew.witherley\\.nuget\\packages\\",
-        "outputPath": "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\obj\\",
+        "projectPath": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\MailContainerTest.Tests.csproj",
+        "packagesPath": "C:\\Users\\paulb\\.nuget\\packages\\",
+        "outputPath": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\andrew.witherley\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\paulb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\000000\\00-dev": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj": {
+                "projectPath": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.2.9, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.2.9, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.2.0-preview-20220401-08, )"
+            },
+            "SimpleInjector": {
+              "target": "Package",
+              "version": "[5.3.3, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-preview.2.22152.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj",
+        "projectName": "MailContainerTest",
+        "projectPath": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj",
+        "packagesPath": "C:\\Users\\paulb\\.nuget\\packages\\",
+        "outputPath": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paulb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\000000\\00-dev": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -42,6 +133,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "SimpleInjector": {
+              "target": "Package",
+              "version": "[5.3.3, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-preview.2.22152.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +158,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

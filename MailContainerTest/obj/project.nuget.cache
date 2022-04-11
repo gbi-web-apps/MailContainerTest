@@ -1,16 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "1+Tnd2W3t03oG32orfn7pGA+mGRUct+FKKTIEo8IhfrTIVi62JA52gYovaLywGIEclAodyZY9dZ8Zg8egw0low==",
+  "dgSpecHash": "1MCCGa2PoBE/tXILSONhfbgRfFPT7Szv0Fmzk4ZazY6ZcT17fy+IL0k4HzzTPvvAaPhOiwRYu+7Q15GBi0KULQ==",
   "success": true,
-  "projectFilePath": "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj",
+  "projectFilePath": "E:\\000000\\00-dev\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\andrew.witherley\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "C:\\Users\\andrew.witherley\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
-    "C:\\Users\\andrew.witherley\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
-    "C:\\Users\\andrew.witherley\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
-    "C:\\Users\\andrew.witherley\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
-    "C:\\Users\\andrew.witherley\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
-    "C:\\Users\\andrew.witherley\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\paulb\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0-preview.2.22152.2\\microsoft.win32.systemevents.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\simpleinjector\\5.3.3\\simpleinjector.5.3.3.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\system.componentmodel\\4.0.1\\system.componentmodel.4.0.1.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0-preview.2.22152.2\\system.configuration.configurationmanager.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\system.drawing.common\\7.0.0-preview.2.22152.2\\system.drawing.common.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\system.runtime\\4.1.0\\system.runtime.4.1.0.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\system.security.cryptography.protecteddata\\7.0.0-preview.2.22152.2\\system.security.cryptography.protecteddata.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\system.security.permissions\\7.0.0-preview.2.22152.2\\system.security.permissions.7.0.0-preview.2.22152.2.nupkg.sha512",
+    "C:\\Users\\paulb\\.nuget\\packages\\system.windows.extensions\\7.0.0-preview.2.22152.2\\system.windows.extensions.7.0.0-preview.2.22152.2.nupkg.sha512"
   ],
   "logs": []
 }

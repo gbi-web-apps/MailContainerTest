@@ -43,3 +43,6 @@ TODO:
  - Create more test scenarios where they should fail
  - Add Exception management
  - Restructure code in multiple projects
+
+QUESTIONS & ASSUMPTIONS:
+ - In a business environment I would definetly asked how the MailType & AllowedMailType should behave, here I assume there should be a flag type and I did not see the point of having 2 identical Enums

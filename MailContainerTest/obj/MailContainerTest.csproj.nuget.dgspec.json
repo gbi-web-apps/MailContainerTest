@@ -1,31 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj": {}
+    "D:\\__Work\\TEST\\GBI\\MailContainer\\MailContainerTest\\MailContainerTest.csproj": {}
   },
   "projects": {
-    "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj": {
+    "D:\\__Work\\TEST\\GBI\\MailContainer\\MailContainerTest\\MailContainerTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj",
+        "projectUniqueName": "D:\\__Work\\TEST\\GBI\\MailContainer\\MailContainerTest\\MailContainerTest.csproj",
         "projectName": "MailContainerTest",
-        "projectPath": "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest\\MailContainerTest.csproj",
-        "packagesPath": "C:\\Users\\andrew.witherley\\.nuget\\packages\\",
-        "outputPath": "c:\\repos\\test\\MailContainerTest\\MailContainerTest\\MailContainerTest\\obj\\",
+        "projectPath": "D:\\__Work\\TEST\\GBI\\MailContainer\\MailContainerTest\\MailContainerTest.csproj",
+        "packagesPath": "C:\\Users\\Dragos\\.nuget\\packages\\",
+        "outputPath": "D:\\__Work\\TEST\\GBI\\MailContainer\\MailContainerTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\andrew.witherley\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dragos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://elxnfa.pkgs.visualstudio.com/_packaging/elxnfa/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -43,6 +44,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -63,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,6 +1,6 @@
-﻿using MailContainerTest.Types;
+﻿using MailContainerTest.Entities;
 
-namespace MailContainerTest.Services
+namespace MailContainerTest.Abstractions
 {
     public interface IMailTransferService
     {

@@ -32,3 +32,14 @@ You should add suitable tests into the MailContainerTest.Test project.
 
 There are no additional constraints, use the packages and approach you feel appropriate, aim to spend no more than 2 hours. Please update the readme with specific comments on any areas that are unfinished and what you would cover given more time.
 
+
+
+### DEV NOTES
+
+I have spend a lot of time configuring my VS 2022, because I just downloaded it and did not got the chance to add my account & my preferred extensions :(
+
+TODO:
+ - Add comments about why I thought about some decisions
+ - Create more test scenarios where they should fail
+ - Add Exception management
+ - Restructure code in multiple projects

@@ -18,7 +18,7 @@ namespace MailContainerTest.Services
         {
             var mailContainer = mailContainerDataStore.GetMailContainer(request.SourceMailContainerNumber);
 
-            MakeMailTransferResult mailContainerValidated = ValidateContiner(mailContainer, request);
+            MakeMailTransferResult mailContainerValidated = ValidateTransferRequestToContiner(mailContainer, request);
 
             if (mailContainerValidated.Success)
             {
@@ -29,7 +29,7 @@ namespace MailContainerTest.Services
             return mailContainerValidated;
         }
 
-        private MakeMailTransferResult ValidateContiner(MailContainer mailContainer, MakeMailTransferRequest request)
+        private MakeMailTransferResult ValidateTransferRequestToContiner(MailContainer mailContainer, MakeMailTransferRequest request)
         {
             var result = IocHelper.Resolve<MakeMailTransferResult>();
             result.Success = true;

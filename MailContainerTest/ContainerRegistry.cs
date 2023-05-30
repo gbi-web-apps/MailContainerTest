@@ -3,6 +3,7 @@ using System.Reflection;
 using MailContainerTest.Data;
 using MailContainerTest.DependencyInjection;
 using MailContainerTest.Services;
+using MailContainerTest.Types;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MailContainerTest
@@ -23,10 +24,10 @@ namespace MailContainerTest
         {
             var asm = Assembly.Load(new AssemblyName("MailContainerTest"));
 
-            //Register singleton instance of all ContentPages 
-            //IocHelper.RegisterAssemblyTypes(asm, "Page", typeof(ContentPage), ServiceLifetime.Transient);
+            //Register Transient instance of all ContentPages 
+            IocHelper.RegisterAssemblyTypes(asm, "Result", typeof(BaseModel), ServiceLifetime.Transient);
 
-            //Register singleton instance of all ViewModels
+            //Register Transient instance of all ViewModels
             //IocHelper.RegisterAssemblyTypes(asm, "ViewModel", typeof(BaseViewModel), ServiceLifetime.Transient);
         }
     }

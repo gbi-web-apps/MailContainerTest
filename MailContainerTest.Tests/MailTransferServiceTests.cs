@@ -1,4 +1,5 @@
-﻿using MailContainerTest.Data;
+﻿using MailContainerTest;
+using MailContainerTest.Data;
 using MailContainerTest.Services;
 using MailContainerTest.Types;
 using Microsoft.VisualBasic;
@@ -14,37 +15,13 @@ public class MailTransferServiceTests
     [SetUp]
     public void Setup()
     {
-        // Set up the mock for IMailContainerDataStore
-        var mailContainerDataStoreMock = new Mock<IMailContainerDataStore>();
+        // Create an instance of the concrete implementation (BackupMailContainerDataStore)
 
-        // Configure the mock behavior for GetMailContainer
-        mailContainerDataStoreMock.Setup(d => d.GetMailContainer(It.IsAny<string>()))
-            .Returns((string containerNumber) =>
-            {
-                // Implement the desired behavior for the fake/mock implementation
-                // Return a mock MailContainer object or null based on the containerNumber
+        ContainerRegistry.Initilize();
 
-                // Example: Creating a mock MailContainer with desired properties
-                var mailContainerMock = new Mock<MailContainer>();
-                mailContainerMock.Setup(c => c.AllowedMailType).Returns(AllowedMailType.StandardLetter);
-                mailContainerMock.Setup(c => c.Capacity).Returns(10);
-                mailContainerMock.Setup(c => c.Status).Returns(MailContainerStatus.Operational);
+        mailContainerDataStore = new MailContainerDataStore();
 
-                // Return the mock MailContainer based on the containerNumber
-                if (containerNumber.Equals("1"))
-                {
-                    return mailContainerMock.Object;
-                }
-                else
-                {
-                    return null;
-                }
-            });
-
-        // Assign the mock to the mailContainerDataStore
-        mailContainerDataStore = mailContainerDataStoreMock.Object;
-
-        // Create an instance of MailTransferService using the mock
+        // Create an instance of MailTransferService using the concrete implementation
         mailTransferService = new MailTransferService(mailContainerDataStore);
     }
 
@@ -90,7 +67,7 @@ public class MailTransferServiceTests
         {
             SourceMailContainerNumber = "1",
             MailType = MailType.LargeLetter,
-            NumberOfMailItems = 5
+            NumberOfMailItems = 5,
         };
 
         // Act
@@ -143,7 +120,7 @@ public class MailTransferServiceTests
         var request = new MakeMailTransferRequest
         {
             SourceMailContainerNumber = "1",
-            MailType = MailType.SmallParcel
+            MailType = MailType.SmallParcel,
         };
 
         // Act

@@ -31,7 +31,7 @@ namespace MailContainerTest.Services
 
         private MakeMailTransferResult ValidateTransferRequestToContiner(MailContainer mailContainer, MakeMailTransferRequest request)
         {
-            var result = IocHelper.Resolve<MakeMailTransferResult>();
+            var result = new MakeMailTransferResult();
             result.Success = true;
             switch (request.MailType)
             {

@@ -9,6 +9,7 @@
       "MailContainerTest/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "NUnit3TestAdapter": "4.4.2",
           "Newtonsoft.Json": "13.0.3",
           "System.Configuration.ConfigurationManager": "6.0.0"
         },
@@ -59,6 +60,7 @@
           }
         }
       },
+      "NUnit3TestAdapter/4.4.2": {},
       "System.Configuration.ConfigurationManager/6.0.0": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
@@ -179,6 +181,13 @@
       "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "path": "newtonsoft.json/13.0.3",
       "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+    },
+    "NUnit3TestAdapter/4.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vA/iHYcR+LYw+pRWQugckC/zW2fXHaqMr2uA82NOBt8v4YK4wMJrQ7QC8XLc7PjetEZ96cPbBTWsDDtmQiRZTA==",
+      "path": "nunit3testadapter/4.4.2",
+      "hashPath": "nunit3testadapter.4.4.2.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/6.0.0": {
       "type": "package",

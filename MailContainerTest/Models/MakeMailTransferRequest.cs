@@ -1,6 +1,6 @@
 ﻿namespace MailContainerTest.Types
 {
-    public class MakeMailTransferRequest
+    public class MakeMailTransferRequest : BaseModel
     {
         public string SourceMailContainerNumber { get; set; }   
         public string DestinationMailContainerNumber { get; set; }

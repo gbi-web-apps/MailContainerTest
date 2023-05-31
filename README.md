@@ -32,3 +32,6 @@ You should add suitable tests into the MailContainerTest.Test project.
 
 There are no additional constraints, use the packages and approach you feel appropriate, aim to spend no more than 2 hours. Please update the readme with specific comments on any areas that are unfinished and what you would cover given more time.
 
+Viraj's Comments:
+
+Roughly spent 2 hrs on the excercise, readablilty of ValidateTransferRequestToContiner could be better.

@@ -1,5 +1,6 @@
 ﻿namespace MailContainerTest.Types
 {
+    [Flags]
     public enum AllowedMailType
     {
         StandardLetter = 1 ,

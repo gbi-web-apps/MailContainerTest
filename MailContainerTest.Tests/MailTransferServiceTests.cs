@@ -15,13 +15,35 @@ public class MailTransferServiceTests
     [SetUp]
     public void Setup()
     {
-        // Create an instance of the concrete implementation (BackupMailContainerDataStore)
+        var mailContainerDataStoreMock = new Mock<IMailContainerDataStore>();
 
-        ContainerRegistry.Initilize();
+        // Configure the mock behavior for GetMailContainer
+        mailContainerDataStoreMock.Setup(d => d.GetMailContainer(It.IsAny<string>()))
+            .Returns((string containerNumber) =>
+            {
+                // Implement the desired behavior for the fake/mock implementation
+                // Return a mock MailContainer object or null based on the containerNumber
+                // Example: Creating a mock MailContainer with desired properties
+                var mailContainerMock = new MailContainer();
+                mailContainerMock.AllowedMailType = AllowedMailType.StandardLetter;
+                mailContainerMock.Capacity = 10;
+                mailContainerMock.Status = MailContainerStatus.Operational;
 
-        mailContainerDataStore = new MailContainerDataStore();
+                // Return the mock MailContainer based on the containerNumber
+                if (containerNumber.Equals("1"))
+                {
+                    return mailContainerMock;
+                }
+                else
+                {
+                    return null;
+                }
+            });
 
-        // Create an instance of MailTransferService using the concrete implementation
+        // Assign the mock to the mailContainerDataStore
+        mailContainerDataStore = mailContainerDataStoreMock.Object;
+
+        // Create an instance of MailTransferService using the mock
         mailTransferService = new MailTransferService(mailContainerDataStore);
     }
 
@@ -33,6 +55,24 @@ public class MailTransferServiceTests
         {
             SourceMailContainerNumber = "1",
             MailType = MailType.StandardLetter
+        };
+
+        // Act
+        var result = mailTransferService.MakeMailTransfer(request);
+
+        // Assert
+        Assert.IsTrue(result.Success);
+    }
+
+    [Test]
+    public void MakeMailTransfer_StandardLetter_LowerCapacity()
+    {
+        // Arrange
+        var request = new MakeMailTransferRequest
+        {
+            SourceMailContainerNumber = "1",
+            MailType = MailType.StandardLetter,
+            NumberOfMailItems = 9
         };
 
         // Act
@@ -60,7 +100,7 @@ public class MailTransferServiceTests
     }
 
     [Test]
-    public void MakeMailTransfer_LargeLetter_Success()
+    public void MakeMailTransfer_DifferentLetterSize_LargeLetter()
     {
         // Arrange
         var request = new MakeMailTransferRequest
@@ -74,7 +114,7 @@ public class MailTransferServiceTests
         var result = mailTransferService.MakeMailTransfer(request);
 
         // Assert
-        Assert.IsTrue(result.Success);
+        Assert.IsFalse(result.Success);
     }
 
     [Test]
@@ -114,7 +154,7 @@ public class MailTransferServiceTests
     }
 
     [Test]
-    public void MakeMailTransfer_SmallParcel_Success()
+    public void MakeMailTransfer_DifferentLetterSize_SmallParcel()
     {
         // Arrange
         var request = new MakeMailTransferRequest
@@ -127,7 +167,7 @@ public class MailTransferServiceTests
         var result = mailTransferService.MakeMailTransfer(request);
 
         // Assert
-        Assert.IsTrue(result.Success);
+        Assert.IsFalse(result.Success);
     }
 
     [Test]

@@ -26,10 +26,10 @@ namespace MailContainerTest.Services
 
         public MakeMailTransferResult MakeMailTransfer(MakeMailTransferRequest request)
         {
-            var sourceMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore(request.SourceMailContainerNumber);
+            var sourceMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore();
             var sourceMailContainer = sourceMailContainerDataStore.GetMailContainer(request.SourceMailContainerNumber);
 
-            var destMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore(request.DestinationMailContainerNumber);
+            var destMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore();
             var destMailContainer = destMailContainerDataStore.GetMailContainer(request.DestinationMailContainerNumber);
 
             var result = new MakeMailTransferResult

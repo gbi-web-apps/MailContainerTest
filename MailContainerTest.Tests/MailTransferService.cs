@@ -19,7 +19,7 @@ public sealed class MailTransferServiceTests
     public void MakeMailTransfer_ShouldReturnFalse_WhenStrategyNotSuccessful()
     {
         // Arrange
-        _mailContainerDataStoreFactory.CreateMailContainerDataStore(Arg.Any<MailContainerNumber>())
+        _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
                                     .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>(), Arg.Any<MakeMailTransferRequest>())
@@ -39,7 +39,7 @@ public sealed class MailTransferServiceTests
     public void MakeMailTransfer_ShouldReturnTrue_WhenStrategyNotSuccessful()
     {
         // Arrange
-        _mailContainerDataStoreFactory.CreateMailContainerDataStore(Arg.Any<MailContainerNumber>())
+        _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
                                     .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>(), Arg.Any<MakeMailTransferRequest>())
@@ -59,7 +59,7 @@ public sealed class MailTransferServiceTests
     public void MakeMailTransfer_ShouldReturnFalse_WhenCommitNotSuccessful()
     {
         // Arrange
-        _mailContainerDataStoreFactory.CreateMailContainerDataStore(Arg.Any<MailContainerNumber>())
+        _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
                                     .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>(), Arg.Any<MakeMailTransferRequest>())

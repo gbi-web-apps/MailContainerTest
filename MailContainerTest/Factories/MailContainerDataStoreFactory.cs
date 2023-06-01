@@ -15,7 +15,7 @@ public sealed class MailContainerDataStoreFactory : IMailContainerDataStoreFacto
         _options = options;
     }
 
-    public IMailContainerDataStore CreateMailContainerDataStore(MailContainerNumber mailContainerNumber)
+    public IMailContainerDataStore CreateMailContainerDataStore()
     {
         if (_options.Value.Equals(BackupMailContainerDataStore.DataStoreType))
         {

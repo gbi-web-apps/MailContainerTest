@@ -10,6 +10,19 @@ namespace MailContainerTest.Tests;
 public sealed class MailTransferStrategyFactoryTests
 {
     [Fact]
+    public void CreateMakeMailTransferStrategy_ShouldReturnStandardLetter_WhenMailTypeIsStandardLetter()
+    {
+        // Arrange
+        var factory = new MailTransferStrategyFactory();
+
+        // Act
+        var result = factory.CreateMakeMailTransferStrategy(MailType.StandardLetter);
+
+        // Assert
+        result.Should().BeOfType<StandardLetterStrategy>();
+    }
+    
+    [Fact]
     public void CreateMakeMailTransferStrategy_ShouldReturnLargeLetterStrategy_WhenMailTypeIsLargeLetter()
     {
         // Arrange
@@ -20,6 +33,19 @@ public sealed class MailTransferStrategyFactoryTests
 
         // Assert
         result.Should().BeOfType<LargeLetterStrategy>();
+    }
+    
+    [Fact]
+    public void CreateMakeMailTransferStrategy_ShouldReturnSmallParcelStrategy_WhenMailTypeIsSmallParcel()
+    {
+        // Arrange
+        var factory = new MailTransferStrategyFactory();
+
+        // Act
+        var result = factory.CreateMakeMailTransferStrategy(MailType.SmallParcel);
+
+        // Assert
+        result.Should().BeOfType<SmallParcelStrategy>();
     }
 
     [Fact]
@@ -32,6 +58,6 @@ public sealed class MailTransferStrategyFactoryTests
         Action result = () => factory.CreateMakeMailTransferStrategy((MailType) (-1));
 
         // Assert
-        result.Should().Throw<ArgumentOutOfRangeException>().WithMessage("Mail type is not in enum range");
+        result.Should().Throw<ArgumentOutOfRangeException>().WithMessage("Mail type is not in enum range*");
     }
 }

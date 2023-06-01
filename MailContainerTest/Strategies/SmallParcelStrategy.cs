@@ -12,7 +12,7 @@ public sealed class SmallParcelStrategy : IMailTransferStrategy
             return false;
         }
         
-        if (!sourceContainer.AllowedMailType.HasFlag(AllowedMailType.SmallParcel) && !destContainer.AllowedMailType.HasFlag(AllowedMailType.SmallParcel))
+        if (!sourceContainer.AllowedMailType.HasFlag(AllowedMailType.SmallParcel) || !destContainer.AllowedMailType.HasFlag(AllowedMailType.SmallParcel))
         {
             return false;
         }

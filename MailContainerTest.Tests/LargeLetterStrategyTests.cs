@@ -58,4 +58,48 @@ public sealed class LargeLetterStrategyTests
         // Assert
         result.Should().BeFalse();
     }
+    
+    [Fact]
+    public void IsSuccess_ShouldReturnFalse_WhenOneOfMailContainerStatusIsNotOperational()
+    {
+        // Arrange
+        var strategy = new LargeLetterStrategy();
+        var sourceContainer = new MailContainer
+                              {
+                                  AllowedMailType = AllowedMailType.LargeLetter,
+                                  Status = MailContainerStatus.Operational
+                              };
+        var destContainer = new MailContainer
+                            {
+                                AllowedMailType = AllowedMailType.LargeLetter,
+                                Status = MailContainerStatus.OutOfService
+                            };
+        var request = new MakeMailTransferRequest
+                      {
+                          MailType = MailType.LargeLetter
+                      };
+
+        // Act
+        var result = strategy.IsSuccess(sourceContainer, destContainer, request);
+
+        // Assert
+        result.Should().BeFalse();
+    }
+    
+    [Fact]
+    public void IsSuccess_ShouldReturnFalse_WhenContainersNull()
+    {
+        // Arrange
+        var strategy = new LargeLetterStrategy();
+        var request = new MakeMailTransferRequest
+                      {
+                          MailType = MailType.LargeLetter
+                      };
+
+        // Act
+        var result = strategy.IsSuccess(null, null, request);
+
+        // Assert
+        result.Should().BeFalse();
+    }
 }

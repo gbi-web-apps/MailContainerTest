@@ -12,7 +12,7 @@ public sealed class LargeLetterStrategy : IMailTransferStrategy
             return false;
         }
         
-        if (!sourceContainer.AllowedMailType.HasFlag(AllowedMailType.LargeLetter) && !destContainer.AllowedMailType.HasFlag(AllowedMailType.LargeLetter))
+        if (!sourceContainer.AllowedMailType.HasFlag(AllowedMailType.LargeLetter) || !destContainer.AllowedMailType.HasFlag(AllowedMailType.LargeLetter))
         {
             return false;
         }

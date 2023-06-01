@@ -12,7 +12,7 @@ public sealed class StandardLetterStrategy : IMailTransferStrategy
             return false;
         }
         
-        if (!sourceContainer.AllowedMailType.HasFlag(AllowedMailType.StandardLetter) && !destContainer.AllowedMailType.HasFlag(AllowedMailType.StandardLetter))
+        if (!sourceContainer.AllowedMailType.HasFlag(AllowedMailType.StandardLetter) || !destContainer.AllowedMailType.HasFlag(AllowedMailType.StandardLetter))
         {
             return false;
         }

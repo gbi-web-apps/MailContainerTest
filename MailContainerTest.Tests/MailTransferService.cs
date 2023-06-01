@@ -19,6 +19,13 @@ public sealed class MailTransferServiceTests
     public void MakeMailTransfer_ShouldReturnFalse_WhenStrategyNotSuccessful()
     {
         // Arrange
+        var request = new MakeMailTransferRequest
+                      {
+                          SourceMailContainerNumber = "1",
+                          DestinationMailContainerNumber = "2",
+                          MailType = MailType.LargeLetter,
+                          NumberOfMailItems = 1
+                      };
         _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
@@ -28,7 +35,7 @@ public sealed class MailTransferServiceTests
         var mailTransferService = new MailTransferService(_mailContainerDataStoreFactory, _mailTransferStrategyFactory, _unitOfWork, _loggerAdapter);
 
         // Act
-        var result = mailTransferService.MakeMailTransfer(Arg.Any<MakeMailTransferRequest>());
+        var result = mailTransferService.MakeMailTransfer(request);
 
         // Assert
         _unitOfWork.DidNotReceive().Commit();
@@ -39,6 +46,13 @@ public sealed class MailTransferServiceTests
     public void MakeMailTransfer_ShouldReturnTrue_WhenStrategyNotSuccessful()
     {
         // Arrange
+        var request = new MakeMailTransferRequest
+                      {
+                          SourceMailContainerNumber = "1",
+                          DestinationMailContainerNumber = "2",
+                          MailType = MailType.LargeLetter,
+                          NumberOfMailItems = 1
+                      };
         _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
@@ -48,7 +62,7 @@ public sealed class MailTransferServiceTests
         var mailTransferService = new MailTransferService(_mailContainerDataStoreFactory, _mailTransferStrategyFactory, _unitOfWork, _loggerAdapter);
 
         // Act
-        var result = mailTransferService.MakeMailTransfer(Arg.Any<MakeMailTransferRequest>());
+        var result = mailTransferService.MakeMailTransfer(request);
 
         // Assert
         _unitOfWork.Received(1).Commit();
@@ -59,6 +73,13 @@ public sealed class MailTransferServiceTests
     public void MakeMailTransfer_ShouldReturnFalse_WhenCommitNotSuccessful()
     {
         // Arrange
+        var request = new MakeMailTransferRequest
+                      {
+                          SourceMailContainerNumber = "1",
+                          DestinationMailContainerNumber = "2",
+                          MailType = MailType.LargeLetter,
+                          NumberOfMailItems = 1
+                      };
         _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
@@ -70,7 +91,7 @@ public sealed class MailTransferServiceTests
         _unitOfWork.When(static x => x.Commit()).Throw<Exception>();
         
         // Act
-        var result = mailTransferService.MakeMailTransfer(Arg.Any<MakeMailTransferRequest>());
+        var result = mailTransferService.MakeMailTransfer(request);
 
         // Assert
         _unitOfWork.Received(1).Commit();

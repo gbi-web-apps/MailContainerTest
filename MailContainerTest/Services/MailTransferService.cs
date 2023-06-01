@@ -1,89 +1,62 @@
 ﻿using MailContainerTest.Data;
 using MailContainerTest.Types;
 using System.Configuration;
+using MailContainerTest.Abstractions;
+using Microsoft.Extensions.Logging;
 
 namespace MailContainerTest.Services
 {
-    public class MailTransferService : IMailTransferService
+    public sealed class MailTransferService : IMailTransferService
     {
+        private readonly IMailContainerDataStoreFactory _mailContainerDataStoreFactory;
+        private readonly IMailTransferStrategyFactory _mailTransferStrategyFactory;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILoggerAdapter<IMailTransferService> _loggerAdapter;
+
+        public MailTransferService(IMailContainerDataStoreFactory mailContainerDataStoreFactory,
+                                   IMailTransferStrategyFactory mailTransferStrategyFactory,
+                                   IUnitOfWork unitOfWork,
+                                   ILoggerAdapter<IMailTransferService> loggerAdapter)
+        {
+            _mailContainerDataStoreFactory = mailContainerDataStoreFactory;
+            _mailTransferStrategyFactory = mailTransferStrategyFactory;
+            _unitOfWork = unitOfWork;
+            _loggerAdapter = loggerAdapter;
+        }
+
         public MakeMailTransferResult MakeMailTransfer(MakeMailTransferRequest request)
         {
-            var dataStoreType = ConfigurationManager.AppSettings["DataStoreType"];
+            var sourceMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore(request.SourceMailContainerNumber);
+            var sourceMailContainer = sourceMailContainerDataStore.GetMailContainer(request.SourceMailContainerNumber);
 
-            MailContainer mailContainer = null;
+            var destMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore(request.DestinationMailContainerNumber);
+            var destMailContainer = destMailContainerDataStore.GetMailContainer(request.DestinationMailContainerNumber);
 
-            if (dataStoreType == "Backup")
-            {
-                var mailContainerDataStore = new BackupMailContainerDataStore();
-                mailContainer = mailContainerDataStore.GetMailContainer(request.SourceMailContainerNumber);
-
-            } else
-            {
-                var mailContainerDataStore = new MailContainerDataStore();
-                mailContainer = mailContainerDataStore.GetMailContainer(request.SourceMailContainerNumber);
-            }
-
-            var result = new MakeMailTransferResult();
-
-            switch (request.MailType)
-            {
-                case MailType.StandardLetter:
-                    if (mailContainer == null)
-                    {
-                        result.Success = false;
-                    }
-                    else if (!mailContainer.AllowedMailType.HasFlag(AllowedMailType.StandardLetter))
-                    {
-                        result.Success = false;
-                    }
-                    break;
-
-                case MailType.LargeLetter:
-                    if (mailContainer == null)
-                    {
-                        result.Success = false;
-                    }
-                    else if (!mailContainer.AllowedMailType.HasFlag(AllowedMailType.LargeLetter))
-                    {
-                        result.Success = false;
-                    }
-                    else if (mailContainer.Capacity < request.NumberOfMailItems)
-                    {
-                        result.Success = false;
-                    }
-                    break;
-
-                case MailType.SmallParcel:
-                    if (mailContainer == null)
-                    {
-                        result.Success = false;
-                    }
-                    else if (!mailContainer.AllowedMailType.HasFlag(AllowedMailType.SmallParcel))
-                    {
-                        result.Success = false;
-
-                    }
-                    else if (mailContainer.Status != MailContainerStatus.Operational)
-                    {
-                        result.Success = false;
-                    }
-                    break;
-            }
+            var result = new MakeMailTransferResult
+                         {
+                             Success = _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(request.MailType)
+                                                                   .IsSuccess(sourceMailContainer, destMailContainer, request)
+                         };
 
             if (result.Success)
             {
-                mailContainer.Capacity -= request.NumberOfMailItems;
-
-                if (dataStoreType == "Backup")
+                try
                 {
-                    var mailContainerDataStore = new BackupMailContainerDataStore();
-                    mailContainerDataStore.UpdateMailContainer(mailContainer);
+                    sourceMailContainer.Capacity -= request.NumberOfMailItems;
+                    destMailContainer.Capacity += request.NumberOfMailItems;
 
+                    sourceMailContainerDataStore.UpdateMailContainer(sourceMailContainer);
+                    destMailContainerDataStore.UpdateMailContainer(destMailContainer);
+
+                    _unitOfWork.Commit();
                 }
-                else
+                catch (Exception ex)
                 {
-                    var mailContainerDataStore = new MailContainerDataStore();
-                    mailContainerDataStore.UpdateMailContainer(mailContainer);
+                    result.Success = false;
+
+                    _unitOfWork.Rollback();
+
+                    _loggerAdapter.LogError(ex, "Error saving changes to containers");
                 }
             }
 

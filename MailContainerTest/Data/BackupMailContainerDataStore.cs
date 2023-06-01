@@ -1,9 +1,12 @@
-﻿using MailContainerTest.Types;
+﻿using MailContainerTest.Abstractions;
+using MailContainerTest.Types;
 
 namespace MailContainerTest.Data
 {
-    public class BackupMailContainerDataStore
+    public sealed class BackupMailContainerDataStore : IMailContainerDataStore
     {
+        public static string DataStoreType => "Backup";
+        
         public MailContainer GetMailContainer(string mailContainerNumber)
         {
             // Access the database and return the retrieved mail container. Implementation not required for this exercise.

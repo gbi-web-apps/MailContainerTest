@@ -29,7 +29,7 @@ public sealed class MailTransferServiceTests
         _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
-                                    .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>(), Arg.Any<MakeMailTransferRequest>())
+                                    .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>())
                                     .Returns(false);
 
         var mailTransferService = new MailTransferService(_mailContainerDataStoreFactory, _mailTransferStrategyFactory, _unitOfWork, _loggerAdapter);
@@ -56,7 +56,7 @@ public sealed class MailTransferServiceTests
         _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
-                                    .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>(), Arg.Any<MakeMailTransferRequest>())
+                                    .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>())
                                     .Returns(true);
 
         var mailTransferService = new MailTransferService(_mailContainerDataStoreFactory, _mailTransferStrategyFactory, _unitOfWork, _loggerAdapter);
@@ -83,7 +83,7 @@ public sealed class MailTransferServiceTests
         _mailContainerDataStoreFactory.CreateMailContainerDataStore()
                                       .Returns(new MailContainerDataStore());
         _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(Arg.Any<MailType>())
-                                    .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>(), Arg.Any<MakeMailTransferRequest>())
+                                    .IsSuccess(Arg.Any<MailContainer?>(), Arg.Any<MailContainer?>())
                                     .Returns(true);
         
         var mailTransferService = new MailTransferService(_mailContainerDataStoreFactory, _mailTransferStrategyFactory, _unitOfWork, _loggerAdapter);

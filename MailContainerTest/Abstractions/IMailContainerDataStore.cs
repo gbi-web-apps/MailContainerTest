@@ -4,7 +4,7 @@ namespace MailContainerTest.Abstractions;
 
 public interface IMailContainerDataStore
 {
-    MailContainer GetMailContainer(string mailContainerNumber);
+    MailContainer GetMailContainer(MailContainerNumber mailContainerNumber);
 
     void UpdateMailContainer(MailContainer mailContainer);
 }

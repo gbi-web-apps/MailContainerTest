@@ -35,7 +35,7 @@ namespace MailContainerTest.Services
             var result = new MakeMailTransferResult
                          {
                              Success = _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(request.MailType)
-                                                                   .IsSuccess(sourceMailContainer, destMailContainer, request)
+                                                                   .IsSuccess(sourceMailContainer, destMailContainer)
                          };
 
             if (result.Success)

@@ -5,7 +5,7 @@ namespace MailContainerTest.Strategies;
 
 public sealed class SmallParcelStrategy : IMailTransferStrategy
 {
-    public bool IsSuccess(MailContainer? sourceContainer, MailContainer? destContainer, MakeMailTransferRequest request)
+    public bool IsSuccess(MailContainer? sourceContainer, MailContainer? destContainer)
     {
         if (sourceContainer is null || destContainer is null)
         {

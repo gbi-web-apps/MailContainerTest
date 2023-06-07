@@ -5,7 +5,7 @@ namespace MailContainerTest.Strategies;
 
 public sealed class StandardLetterStrategy : IMailTransferStrategy
 {
-    public bool IsSuccess(MailContainer? sourceContainer, MailContainer? destContainer)
+    public bool IsSuccess(MailContainer? sourceContainer, MailContainer? destContainer, MakeMailTransferRequest request)
     {
         if (sourceContainer is null || destContainer is null)
         {
@@ -22,6 +22,11 @@ public sealed class StandardLetterStrategy : IMailTransferStrategy
             return false;
         }
 
+        if (sourceContainer.Capacity < request.NumberOfMailItems)
+        {
+            return false;
+        }
+        
         return true;
     }
 }

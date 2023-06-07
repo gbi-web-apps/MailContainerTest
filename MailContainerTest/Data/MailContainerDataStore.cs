@@ -5,7 +5,7 @@ namespace MailContainerTest.Data
 {
     public sealed class MailContainerDataStore : IMailContainerDataStore
     {
-        public MailContainer GetMailContainer(MailContainerNumber mailContainerNumber)
+        public MailContainer GetMailContainer(in MailContainerNumber mailContainerNumber)
         {   
             // Access the database and return the retrieved mail container. Implementation not required for this exercise.
             return new MailContainer();

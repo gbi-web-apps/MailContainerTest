@@ -26,27 +26,26 @@ namespace MailContainerTest.Services
 
         public MakeMailTransferResult MakeMailTransfer(MakeMailTransferRequest request)
         {
-            var sourceMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore();
-            var sourceMailContainer = sourceMailContainerDataStore.GetMailContainer(request.SourceMailContainerNumber);
-
-            var destMailContainerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore();
-            var destMailContainer = destMailContainerDataStore.GetMailContainer(request.DestinationMailContainerNumber);
+            var containerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore();
+            
+            var sourceMailContainer = containerDataStore.GetMailContainer(request.SourceMailContainerNumber);
+            var destMailContainer = containerDataStore.GetMailContainer(request.DestinationMailContainerNumber);
 
             var result = new MakeMailTransferResult
                          {
                              Success = _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(request.MailType)
-                                                                   .IsSuccess(sourceMailContainer, destMailContainer)
+                                                                   .IsSuccess(sourceMailContainer, destMailContainer, request)
                          };
 
             if (result.Success)
             {
                 try
                 {
-                    sourceMailContainer.Capacity -= request.NumberOfMailItems;
-                    destMailContainer.Capacity += request.NumberOfMailItems;
+                    sourceMailContainer.DecreaseCapacity(request.NumberOfMailItems);
+                    destMailContainer.IncreaseCapacity(request.NumberOfMailItems);
 
-                    sourceMailContainerDataStore.UpdateMailContainer(sourceMailContainer);
-                    destMailContainerDataStore.UpdateMailContainer(destMailContainer);
+                    containerDataStore.UpdateMailContainer(sourceMailContainer);
+                    containerDataStore.UpdateMailContainer(destMailContainer);
 
                     _unitOfWork.Commit();
                 }

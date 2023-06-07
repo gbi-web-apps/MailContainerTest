@@ -28,7 +28,7 @@ public sealed class LargeLetterStrategyTests
                       };
 
         // Act
-        var result = strategy.IsSuccess(sourceContainer, destContainer);
+        var result = strategy.IsSuccess(sourceContainer, destContainer, request);
 
         // Assert
         result.Should().BeTrue();
@@ -53,7 +53,7 @@ public sealed class LargeLetterStrategyTests
                       };
 
         // Act
-        var result = strategy.IsSuccess(sourceContainer, destContainer);
+        var result = strategy.IsSuccess(sourceContainer, destContainer, request);
 
         // Assert
         result.Should().BeFalse();
@@ -80,7 +80,7 @@ public sealed class LargeLetterStrategyTests
                       };
 
         // Act
-        var result = strategy.IsSuccess(sourceContainer, destContainer);
+        var result = strategy.IsSuccess(sourceContainer, destContainer, request);
 
         // Assert
         result.Should().BeFalse();
@@ -97,7 +97,7 @@ public sealed class LargeLetterStrategyTests
                       };
 
         // Act
-        var result = strategy.IsSuccess(null, null);
+        var result = strategy.IsSuccess(null, null, request);
 
         // Assert
         result.Should().BeFalse();

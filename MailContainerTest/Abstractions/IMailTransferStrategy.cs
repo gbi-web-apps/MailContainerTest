@@ -4,5 +4,5 @@ namespace MailContainerTest.Abstractions;
 
 public interface IMailTransferStrategy
 {
-    bool IsSuccess(MailContainer? sourceContainer, MailContainer? destContainer);
+    bool IsSuccess(MailContainer? sourceContainer, MailContainer? destContainer, MakeMailTransferRequest request);
 }

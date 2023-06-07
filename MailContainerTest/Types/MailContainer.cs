@@ -1,11 +1,34 @@
 ﻿namespace MailContainerTest.Types
 {
-    public class MailContainer
+    public sealed class MailContainer
     {
-        public string MailContainerNumber { get; set; } 
-        public int Capacity { get; set; }   
-        public MailContainerStatus Status { get; set; }
-        public AllowedMailType AllowedMailType { get; set; }
+        public MailContainerNumber MailContainerNumber { get; init; }
+        public MailContainerCapacity Capacity { get; private set; }
+        public MailContainerStatus Status { get; init; }
+        public AllowedMailType AllowedMailType { get; init; }
 
+        public void IncreaseCapacity(int numberOfMailItems)
+        {
+            if (numberOfMailItems < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfMailItems),
+                                                      numberOfMailItems,
+                                                      $"{nameof(numberOfMailItems)} must be a positive number higher than 0.");
+            }
+
+            Capacity += numberOfMailItems;
+        }
+
+        public void DecreaseCapacity(int numberOfMailItems)
+        {
+            if (numberOfMailItems < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(numberOfMailItems),
+                                                      numberOfMailItems,
+                                                      $"{nameof(numberOfMailItems)} must be a positive number higher than 0.");
+            }
+
+            Capacity -= numberOfMailItems;
+        }
     }
 }

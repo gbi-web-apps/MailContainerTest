@@ -27,39 +27,44 @@ namespace MailContainerTest.Services
         public MakeMailTransferResult MakeMailTransfer(MakeMailTransferRequest request)
         {
             var containerDataStore = _mailContainerDataStoreFactory.CreateMailContainerDataStore();
-            
+
             var sourceMailContainer = containerDataStore.GetMailContainer(request.SourceMailContainerNumber);
             var destMailContainer = containerDataStore.GetMailContainer(request.DestinationMailContainerNumber);
 
-            var result = new MakeMailTransferResult
-                         {
-                             Success = _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(request.MailType)
-                                                                   .IsSuccess(sourceMailContainer, destMailContainer, request)
-                         };
+            var mailTransfer = new MakeMailTransferResult
+                               {
+                                   Success = _mailTransferStrategyFactory.CreateMakeMailTransferStrategy(request.MailType)
+                                                                         .IsSuccess(sourceMailContainer, destMailContainer, request)
+                               };
 
-            if (result.Success)
+            if (mailTransfer.Success)
             {
-                try
-                {
-                    sourceMailContainer.DecreaseCapacity(request.NumberOfMailItems);
-                    destMailContainer.IncreaseCapacity(request.NumberOfMailItems);
-
-                    containerDataStore.UpdateMailContainer(sourceMailContainer);
-                    containerDataStore.UpdateMailContainer(destMailContainer);
-
-                    _unitOfWork.Commit();
-                }
-                catch (Exception ex)
-                {
-                    result.Success = false;
-
-                    _unitOfWork.Rollback();
-
-                    _loggerAdapter.LogError(ex, "Error saving changes to containers");
-                }
+                ApplyMailContainerChanges(request, sourceMailContainer, destMailContainer, containerDataStore, mailTransfer);
             }
 
-            return result;
+            return mailTransfer;
+        }
+
+        private void ApplyMailContainerChanges(MakeMailTransferRequest request, MailContainer sourceMailContainer, MailContainer destMailContainer, IMailContainerDataStore containerDataStore, MakeMailTransferResult result)
+        {
+            try
+            {
+                sourceMailContainer.DecreaseCapacity(request.NumberOfMailItems);
+                destMailContainer.IncreaseCapacity(request.NumberOfMailItems);
+
+                containerDataStore.UpdateMailContainer(sourceMailContainer);
+                containerDataStore.UpdateMailContainer(destMailContainer);
+
+                _unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+
+                _unitOfWork.Rollback();
+
+                _loggerAdapter.LogError(ex, "Error saving changes to containers");
+            }
         }
     }
 }

@@ -1,48 +1,53 @@
 ﻿using FluentAssertions;
+using MailContainerTest.Abstractions;
 using MailContainerTest.Factories;
 using MailContainerTest.Strategies;
+using MailContainerTest.Strategies.Behaviours;
 using MailContainerTest.Types;
-using NSubstitute.ExceptionExtensions;
 using Xunit;
 
 namespace MailContainerTest.Tests;
 
 public sealed class MailTransferStrategyFactoryTests
 {
+    private readonly MailTransferStrategyFactory _sut;
+
+    public MailTransferStrategyFactoryTests()
+    {
+        _sut = new MailTransferStrategyFactory(new AllowedMailTypeBehaviour(), new OperationalStatusBehaviour(), new CapacityBehaviour());
+    }
+
     [Fact]
     public void CreateMakeMailTransferStrategy_ShouldReturnStandardLetter_WhenMailTypeIsStandardLetter()
     {
         // Arrange
-        var factory = new MailTransferStrategyFactory();
 
         // Act
-        var result = factory.CreateMakeMailTransferStrategy(MailType.StandardLetter);
+        var result = _sut.CreateMakeMailTransferStrategy(MailType.StandardLetter);
 
         // Assert
         result.Should().BeOfType<StandardLetterStrategy>();
     }
-    
+
     [Fact]
     public void CreateMakeMailTransferStrategy_ShouldReturnLargeLetterStrategy_WhenMailTypeIsLargeLetter()
     {
         // Arrange
-        var factory = new MailTransferStrategyFactory();
 
         // Act
-        var result = factory.CreateMakeMailTransferStrategy(MailType.LargeLetter);
+        var result = _sut.CreateMakeMailTransferStrategy(MailType.LargeLetter);
 
         // Assert
         result.Should().BeOfType<LargeLetterStrategy>();
     }
-    
+
     [Fact]
     public void CreateMakeMailTransferStrategy_ShouldReturnSmallParcelStrategy_WhenMailTypeIsSmallParcel()
     {
         // Arrange
-        var factory = new MailTransferStrategyFactory();
 
         // Act
-        var result = factory.CreateMakeMailTransferStrategy(MailType.SmallParcel);
+        var result = _sut.CreateMakeMailTransferStrategy(MailType.SmallParcel);
 
         // Assert
         result.Should().BeOfType<SmallParcelStrategy>();
@@ -52,10 +57,9 @@ public sealed class MailTransferStrategyFactoryTests
     public void CreateMakeMailTransferStrategy_ShouldThrowArgumentOutOfRangeException_WhenMailTypeIsNotInEnumRange()
     {
         // Arrange
-        var factory = new MailTransferStrategyFactory();
 
         // Act
-        Action result = () => factory.CreateMakeMailTransferStrategy((MailType) (-1));
+        Action result = () => _sut.CreateMakeMailTransferStrategy((MailType) (-1));
 
         // Assert
         result.Should().Throw<ArgumentOutOfRangeException>().WithMessage("Mail type is not in enum range*");

@@ -5,24 +5,24 @@ namespace MailContainerTest.Strategies;
 
 public sealed class SmallParcelStrategy : IMailTransferStrategy
 {
-    public bool IsSuccess(MailContainer? sourceContainer, MailContainer? destContainer, MakeMailTransferRequest request)
+    private readonly IAllowedMailTypeBehaviour _allowedMailTypeBehaviour;
+    private readonly IOperationalStatusBehaviour _operationalStatusBehaviour;
+
+    public SmallParcelStrategy(IAllowedMailTypeBehaviour allowedMailTypeBehaviour,
+                               IOperationalStatusBehaviour operationalStatusBehaviour)
     {
-        if (sourceContainer is null || destContainer is null)
+        _allowedMailTypeBehaviour = allowedMailTypeBehaviour;
+        _operationalStatusBehaviour = operationalStatusBehaviour;
+    }
+    
+    public bool IsSuccess(MailContainer sourceContainer, MailContainer destContainer, MakeMailTransferRequest request)
+    {
+        if (_allowedMailTypeBehaviour.IsAllowedMailType(sourceContainer, destContainer) is false)
         {
             return false;
         }
-        
-        if (!sourceContainer.AllowedMailType.HasFlag(AllowedMailType.SmallParcel) || !destContainer.AllowedMailType.HasFlag(AllowedMailType.SmallParcel))
-        {
-            return false;
-        }
-        
-        if (sourceContainer.Status != MailContainerStatus.Operational || destContainer.Status != MailContainerStatus.Operational)
-        {
-            return false;
-        }
-        
-        if (sourceContainer.Capacity < request.NumberOfMailItems)
+
+        if (_operationalStatusBehaviour.IsOperationalStatus(sourceContainer, destContainer) is false)
         {
             return false;
         }

@@ -32,3 +32,10 @@ You should add suitable tests into the MailContainerTest.Test project.
 
 There are no additional constraints, use the packages and approach you feel appropriate, aim to spend no more than 2 hours. Please update the readme with specific comments on any areas that are unfinished and what you would cover given more time.
 
+
+Dev notes:
+ - Assumed that code logic was incomplete according to requirements details
+ - Took aprox 2h to complete (timeboxed according with requirements details)
+ - Tests not fully covered. Just some to show variety of examples
+ - Some implementations not completed since time was limited. Interfaces used for demonstration instead (ie: unit of work)
+ - Project structure kept the same for simplicity. By preference I usually go for physical partitons using the Clean Architecture design but also looking into Vertical Slice Architecture design for simplicity and higher cohesion

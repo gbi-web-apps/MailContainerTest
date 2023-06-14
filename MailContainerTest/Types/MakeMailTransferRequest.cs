@@ -1,11 +1,11 @@
 ﻿namespace MailContainerTest.Types
 {
-    public class MakeMailTransferRequest
+    public sealed record MakeMailTransferRequest
     {
-        public string SourceMailContainerNumber { get; set; }   
-        public string DestinationMailContainerNumber { get; set; }
-        public int NumberOfMailItems { get; set; }
-        public DateTime TransferDate { get; set; }   
-        public MailType MailType { get; set; }  
+        public MailContainerNumber SourceMailContainerNumber { get; init; }   
+        public MailContainerNumber DestinationMailContainerNumber { get; init; }
+        public int NumberOfMailItems { get; init; }
+        public DateTime TransferDate { get; init; }   
+        public MailType MailType { get; init; }  
     }
 }
